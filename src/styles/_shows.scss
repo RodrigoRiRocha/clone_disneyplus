@@ -1,0 +1,52 @@
+@use 'variaveis';
+
+// Estilos para a seção de shows
+.shows {
+    padding: 2vw 5.6vw;
+    min-height: 50vw;
+
+    // Lista de shows
+    &__list {
+        margin-top: 44px;
+        display: none; // Inicialmente escondido
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 24px;
+
+        // Estado ativo para a lista
+        &--is--active {
+            display: grid; // Exibir como grid quando ativo
+        }
+
+        // Item individual de show
+        &__item {
+            img {
+                max-width: 100%;
+                border-radius: 4px;
+            }
+        }
+    }
+
+    // Abas para alternar entre listas de shows
+    &__tabs {
+        display: flex;
+        justify-content: center;
+
+        // Botão individual da aba
+        &__button {
+            color: variaveis.$corTextoSecundario;
+            font-size: 20px;
+            border: none;
+            padding-bottom: 5px;
+            background: none;
+            text-transform: uppercase;
+            margin: 0 1vw;
+            cursor: pointer;
+            border-bottom: 5px solid transparent;
+
+            // Estado ativo para o botão
+            &--is--active {
+                border-color:  variaveis.$corTextoSecundario;
+            }
+        }
+    }
+}
