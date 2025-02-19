@@ -1,0 +1,71 @@
+@use 'variaveis'; // Importa o arquivo de variáveis para reutilizar estilos globais
+
+// Estilização do cabeçalho (header)
+.header {
+    position: sticky; // Mantém o cabeçalho fixo no topo ao rolar a página
+    top: 0;
+    left: 0;
+    background-color: variaveis.$corDeFundo; // Define a cor de fundo a partir da variável importada
+    transition: background-color .5s ease; // Suaviza a transição da cor de fundo ao longo de 0,5s
+    z-index: 1; // Garante que o cabeçalho fique acima de outros elementos
+
+    // Modificador para esconder o cabeçalho quando necessário
+    &--is-hidden {
+        background-color: transparent; // Torna o fundo transparente quando oculto
+        transition: background-color .5s ease; // Mantém a transição suave
+
+        .header {
+            // Esconde o logo e o primeiro item de link quando o cabeçalho está oculto
+            &__logo,
+            &__links__item:first-child {
+                opacity: 0; // Torna os elementos invisíveis gradualmente
+                visibility: hidden; // Remove a visibilidade para que não ocupem espaço
+                transition: opacity .5s ease; // Suaviza a transição da opacidade
+            }
+        }
+    }
+
+    // Contêiner interno do cabeçalho
+    &__container {
+        padding: 8px 16px; // Adiciona espaçamento interno
+        display: flex; // Usa flexbox para organizar os elementos
+        justify-content: space-between; // Distribui os elementos igualmente
+
+        @media (max-width: 768px) {
+            padding: 0 12px 0 20px;
+        }
+    }
+
+    // Estilização do logo dentro do cabeçalho
+    &__logo {
+        max-width: 80px; // Define um tamanho máximo para o logo
+        width: 100%; // Permite que ele seja responsivo dentro do limite
+        margin: 5px; // Adiciona um pequeno espaçamento
+
+        @media (max-width: 176px) {
+            max-width: 64px;
+        }
+    }
+
+    // Área de links do cabeçalho
+    &__links {
+        display: flex; // Organiza os links horizontalmente
+
+        &__item {
+            margin: 5px; // Adiciona espaçamento entre os links
+            transition: opacity .5s ease; // Suaviza mudanças de opacidade ao longo de 0,5s
+        }
+    }
+
+    // Estilização dos botões dentro do cabeçalho
+    .button {
+        height: 50px; // Define uma altura fixa para os botões
+
+        @media (max-width: 768px) {
+            font-size: 13px;
+            padding: 8px 11px;
+            height: 40px;
+            letter-spacing: 0;
+        }
+    }
+}

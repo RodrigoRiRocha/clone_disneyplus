@@ -12,6 +12,11 @@
         grid-template-columns: 1fr 1fr 1fr;
         gap: 24px;
 
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
         // Estado ativo para a lista
         &--is--active {
             display: grid; // Exibir como grid quando ativo
@@ -31,9 +36,15 @@
         display: flex;
         justify-content: center;
 
+        @media (max-width: 768px) {
+            white-space: nowrap;
+            overflow-x: scroll;
+            padding-left: 30px;
+        }
+
         // Botão individual da aba
         &__button {
-            color: variaveis.$corTextoSecundario;
+            color: variaveis.$corTextoPrincipal;
             font-size: 20px;
             border: none;
             padding-bottom: 5px;
@@ -45,7 +56,11 @@
 
             // Estado ativo para o botão
             &--is--active {
-                border-color:  variaveis.$corTextoSecundario;
+                border-color:  variaveis.$corTextoPrincipal;
+            }
+
+            @media (max-width: 768px) {
+                font-size: 16px;
             }
         }
     }
